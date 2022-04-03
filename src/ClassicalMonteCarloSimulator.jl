@@ -1,11 +1,30 @@
 module ClassicalMonteCarloSimulator
 
+# ============================================================================== #
+#  Included modules and files, each with their own exports.
+# ============================================================================== #
+using Reexport
+
+include("MonteCarloComponents.jl")
+@reexport using .MonteCarloComponents
+
+# ============================================================================== #
+#  Classical Monte Carlo Simulator interface
+# ============================================================================== #
+
 export MonteCarloSimulation, initialize!, thermalize!, measure!, analyze!, export_data, simulate!
 
 """
-Interface for the simulations.
+Parent parametric type that defines the components of each `Simulation`.
+
+# Additional Information
+Each Simulation must have the following `MonteCarloComponents`:
+1. A model defined parametrically by `Model`.
+1. A Monte Carlo method which is a subtype of a `Model`.
+1. A set of `parameters <: SimulationParameters` defining how the simulation is executed.
+1. An `Analysis` type defining how the statistics are gathered.
 """
-abstract type MonteCarloSimulation end 
+abstract type MonteCarloSimulation{Mod <: Model, Method <: MonteCarloMethod, Params <: SimulationParameters, Ana <: Analysis} end 
 
 """
 # REQUIRED FOR `MonteCarloSimulation` INTERFACE 
