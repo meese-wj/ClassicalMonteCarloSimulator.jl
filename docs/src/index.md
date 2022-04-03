@@ -10,5 +10,5 @@ Documentation for [ClassicalMonteCarloSimulator](https://github.com/meese-wj/Cla
 ```
 
 ```@autodocs
-Modules = [ClassicalMonteCarloSimulator]
+Modules = [ClassicalMonteCarloSimulator, ClassicalMonteCarloSimulator.MonteCarloComponents]
 ```
