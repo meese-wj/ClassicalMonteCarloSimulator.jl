@@ -8,6 +8,9 @@ using Reexport
 include("MonteCarloComponents.jl")
 @reexport using .MonteCarloComponents
 
+include("Models/MonteCarloModels.jl")
+@reexport using .MonteCarloModels
+
 # ============================================================================== #
 #  Classical Monte Carlo Simulator interface
 # ============================================================================== #
